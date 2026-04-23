@@ -1,0 +1,30 @@
+public class StringPerformanceComparison {
+    public static void main(String[] args) {
+        int iterations = 100000;
+        String extra = " World";
+
+        long startTime = System.currentTimeMillis();
+        String str = "Hello";
+        for (int i = 0; i < iterations; i++) {
+            str += extra;
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("Thời gian thực thi của String: " + (endTime - startTime) + " ms");
+
+        startTime = System.currentTimeMillis();
+        StringBuffer sBuffer = new StringBuffer("Hello");
+        for (int i = 0; i < iterations; i++) {
+            sBuffer.append(extra);
+        }
+        endTime = System.currentTimeMillis();
+        System.out.println("Thời gian thực thi của StringBuffer: " + (endTime - startTime) + " ms");
+
+        startTime = System.currentTimeMillis();
+        StringBuilder sBuilder = new StringBuilder("Hello");
+        for (int i = 0; i < iterations; i++) {
+            sBuilder.append(extra);
+        }
+        endTime = System.currentTimeMillis();
+        System.out.println("Thời gian thực thi của StringBuilder: " + (endTime - startTime) + " ms");
+    }
+}
